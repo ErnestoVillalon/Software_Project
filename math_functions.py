@@ -7,6 +7,9 @@
 # Description:
 #   
 #   This file contains functions to add and subtract very large numbers.
+#
+# Github: 
+#	https://github.com/ErnestoVillalon/Software_Project#software_project
 # *****************************************************************************
 
 # -----------------------------------------------------------------------------
@@ -15,8 +18,7 @@
 
 def findSum(str1, str2):
 
-	# Before proceeding further, make sure length
-	# of str2 is larger.
+	# Make sure length of str2 is larger.
 	if len(str1)> len(str2):
 		temp = str1
 		str1 = str2
@@ -25,7 +27,7 @@ def findSum(str1, str2):
 	# Take an empty string for storing result
 	str3 = ""
 
-	# Calculate length of both string
+	# Calculate length
 	n1 = len(str1)
 	n2 = len(str2)
 	diff = n2 - n1
@@ -36,14 +38,10 @@ def findSum(str1, str2):
 	# Traverse from end of both strings
 	for i in range(n1-1,-1,-1):
 	
-		# Do school mathematics, compute sum of
-		# current digits and carry
-	
 		sum = ((ord(str1[i])-ord('0')) +
 				int((ord(str2[i+diff])-ord('0'))) + carry)
 	
 		str3 = str3+str(sum%10 )
-		
 		
 		carry = sum//10
 
@@ -69,8 +67,7 @@ def findSum(str1, str2):
 
 def findDiff(str1, str2):
 	
-	# Before proceeding further,
-	# make sure str1 is not smaller
+	# Make sure str1 is not smaller
 	if (isSmaller(str1, str2)):
 		str1, str2 = str2, str1
 
@@ -78,7 +75,7 @@ def findDiff(str1, str2):
 	# storing result
 	Str = ""
 	
-	# Calculate lengths of both string
+	# Calculate lengths
 	n1 = len(str1)
 	n2 = len(str2)
 	diff = n1 - n2
@@ -89,9 +86,6 @@ def findDiff(str1, str2):
 	# Traverse from end of both strings
 	for i in range(n2 - 1, -1, -1):
 		
-		# Do school mathematics, compute
-		# difference of current digits
-		# and carry
 		sub = ((ord(str1[i + diff]) - ord('0')) -
 			(ord(str2[i]) - ord('0')) - carry)
 
@@ -128,7 +122,7 @@ def findDiff(str1, str2):
 
 def isSmaller(str1, str2):
 	
-	# Calculate lengths of both string
+	# Calculate lengths
 	n1 = len(str1)
 	n2 = len(str2)
 
