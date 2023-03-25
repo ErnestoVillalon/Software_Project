@@ -59,6 +59,8 @@ def findSum(str1, str2):
 	# reverse resultant string
 	str3 = str3[::-1]
 
+	str3 = three_commas(str3)
+
 	return str3
 
 # -----------------------------------------------------------------------------
@@ -113,6 +115,8 @@ def findDiff(str1, str2):
 
 	# Reverse resultant string
 	Str = Str[::-1]
+
+	Str = three_commas(Str)
 	
 	return Str
 
@@ -138,3 +142,9 @@ def isSmaller(str1, str2):
 			return False
 			
 	return False
+
+# Funciton to add commas to number stored in string
+# Added as part of the requirements update.
+def three_commas(x):
+	b, a = divmod(len(x), 3)
+	return ",".join(([x[:a]] if a else []) + [x[a+3*i:a+3*i+3] for i in range(b)])
