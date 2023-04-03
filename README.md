@@ -20,11 +20,8 @@ Enter the following command
 
 The terminal should output text similar to this:
 
-    Test Case One: Addition
-    198123
-
-    Test Case Two: Subtraction
-    991
+    Test Case for requirement [SRS-0040]
+    1,908,979
 
 ## Files
 
@@ -34,16 +31,16 @@ This project will consist of two files:
 
 ### math_functions.py
 
-This file will contain three functions findSum, findDiff, and isSmaller.
+This file will contain three functions findSum, findDiff, and three_commas.
 
 findSum takes two large numbers as string inputs and returns the sum as a string.
 
 findDiff takes two large numbers as string inputs and returns the difference as a string.
 
-isSmaller takes two large numbers as string inputs and returns a boolean value.
+three_commas a string input, converts it to an integer, adds commas at every third digit from the end, converts the integer back to a string, and returns it as an output.
 
 ### math_test.py
 
 This file contains the test cases for testing the functions in math_functions.py
 
-It hase two test cases. One tests the findSum function and the other tests the findDiff function.
+It hase multiple test cases to verify the funcitonal requirements. To view these requirements, reference document "Software Requirements Specification - Big Number Computation"

@@ -18,133 +18,48 @@
 
 def findSum(str1, str2):
 
-	# Make sure length of str2 is larger.
-	if len(str1)> len(str2):
-		temp = str1
-		str1 = str2
-		str2 = temp
 
-	# Take an empty string for storing result
-	str3 = ""
-
-	# Calculate length
-	n1 = len(str1)
-	n2 = len(str2)
-	diff = n2 - n1
-
-	# Initially take carry zero
-	carry = 0
-
-	# Traverse from end of both strings
-	for i in range(n1-1,-1,-1):
+ 
+	# Create int objects with arbitrary precision
+	a = int(str1)
+	b = int(str2)
 	
-		sum = ((ord(str1[i])-ord('0')) +
-				int((ord(str2[i+diff])-ord('0'))) + carry)
+	# Add the int objects
+	result = a + b
+
+	result = str(result)
+
+	result = three_commas(result)
 	
-		str3 = str3+str(sum%10 )
-		
-		carry = sum//10
-
-	# Add remaining digits of str2[]
-	for i in range(n2-n1-1,-1,-1):
-	
-		sum = ((ord(str2[i])-ord('0'))+carry)
-		str3 = str3+str(sum%10 )
-		carry = sum//10
-
-	# Add remaining carry
-	if (carry):
-		str3+str(carry+'0')
-
-	# reverse resultant string
-	str3 = str3[::-1]
-
-	str3 = three_commas(str3)
-
-	return str3
+	return result
 
 # -----------------------------------------------------------------------------
-#                               Differenct Function 
+#                               Difference Function 
 # -----------------------------------------------------------------------------
 
 def findDiff(str1, str2):
-	
-	# Make sure str1 is not smaller
-	if (isSmaller(str1, str2)):
-		str1, str2 = str2, str1
 
-	# Take an empty string for
-	# storing result
-	Str = ""
+	# Create int objects with arbitrary precision
+	a = int(str1)
+	b = int(str2)
 	
-	# Calculate lengths
-	n1 = len(str1)
-	n2 = len(str2)
-	diff = n1 - n2
+	# Add the int objects
+	result = a - b
+
+	result = str(result)
 	
-	# Initially take carry zero
-	carry = 0
+	result = three_commas(result)
+
+	return result
 	
-	# Traverse from end of both strings
-	for i in range(n2 - 1, -1, -1):
-		
-		sub = ((ord(str1[i + diff]) - ord('0')) -
-			(ord(str2[i]) - ord('0')) - carry)
-
-		if (sub < 0):
-			sub += 10
-			carry = 1
-		else:
-			carry = 0
-
-		Str += chr(sub + ord('0'))
-	
-	# Subtract remaining digits of str1[]
-	for i in range(n1 - n2 - 1, -1, -1):
-		if (str1[i] == '0' and carry):
-			Str += '9'
-			continue
-			
-		sub = (ord(str1[i]) - ord('0')) - carry
-		
-		# Remove preceding 0's
-		if (i > 0 or sub > 0):
-			Str += chr(sub + ord('0'))
-			
-		carry = 0
-
-	# Reverse resultant string
-	Str = Str[::-1]
-
-	Str = three_commas(Str)
-	
-	return Str
-
 # -----------------------------------------------------------------------------
-#                   Function to decide which string is smaller 
-# -----------------------------------------------------------------------------
-
-def isSmaller(str1, str2):
-	
-	# Calculate lengths
-	n1 = len(str1)
-	n2 = len(str2)
-
-	if (n1 < n2):
-		return True
-	if (n2 < n1):
-		return False
-
-	for i in range(n1):
-		if (str1[i] < str2[i]):
-			return True
-		elif (str1[i] > str2[i]):
-			return False
-			
-	return False
-
 # Funciton to add commas to number stored in string
 # Added as part of the requirements update.
+# -----------------------------------------------------------------------------
+
 def three_commas(x):
-	b, a = divmod(len(x), 3)
-	return ",".join(([x[:a]] if a else []) + [x[a+3*i:a+3*i+3] for i in range(b)])
+
+	int1 = int(x)
+	out = format (int1, ',d')
+	out = str(out)
+	return out
