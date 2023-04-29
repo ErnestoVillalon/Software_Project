@@ -88,3 +88,18 @@ if __name__ == "__main__":
     print(findDiff(str1, str2))
     print(" ")
 
+    #[SRS-0140] When performing arithmetic functions on the two input numbers, the output shall have the same number of decimal places as the input number with the larger decimal place.
+    print("Test Case for requirement [SRS-0140] (Addition)")
+
+    str1 = "23.00000008"
+    str2 = "562.56708"
+    print(findSum(str1, str2))
+    print(" ")
+
+   #[SRS-0140] When performing arithmetic functions on the two input numbers, the output shall have the same number of decimal places as the input number with the larger decimal place.
+    print("Test Case for requirement [SRS-0140] (Subtraction)")
+
+    str1 = "23.007"
+    str2 = "562.55555"
+    print(findDiff(str1, str2))
+    print(" ")

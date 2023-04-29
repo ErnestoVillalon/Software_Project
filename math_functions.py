@@ -12,6 +12,8 @@
 #	https://github.com/ErnestoVillalon/Software_Project#software_project
 # *****************************************************************************
 
+import decimal
+
 # -----------------------------------------------------------------------------
 #                                   Sum Function 
 # -----------------------------------------------------------------------------
@@ -21,15 +23,17 @@ def findSum(str1, str2):
 
  
 	# Create int objects with arbitrary precision
-	a = int(str1)
-	b = int(str2)
+	a = float(str1)
+	b = float(str2)
 	
 	# Add the int objects
 	result = a + b
 
 	result = str(result)
 
-	result = three_commas(result)
+	result = three_commas(result, str1, str2)
+
+	# print("result: ", result)
 	
 	return result
 
@@ -40,15 +44,15 @@ def findSum(str1, str2):
 def findDiff(str1, str2):
 
 	# Create int objects with arbitrary precision
-	a = int(str1)
-	b = int(str2)
+	a = float(str1)
+	b = float(str2)
 	
 	# Add the int objects
 	result = a - b
 
 	result = str(result)
 	
-	result = three_commas(result)
+	result = three_commas(result, str1, str2)
 
 	return result
 	
@@ -57,9 +61,36 @@ def findDiff(str1, str2):
 # Added as part of the requirements update.
 # -----------------------------------------------------------------------------
 
-def three_commas(x):
+def three_commas(x, str1, str2):
 
-	int1 = int(x)
-	out = format (int1, ',d')
+	int1 = float(x)
+	decimal_place = compare_decimal(str1, str2)
+	out = round(int1, decimal_place)
+	# print("round: ", out)
+	out = f"{out:,}"
+	# print("format: ", out)
 	out = str(out)
 	return out
+
+# -----------------------------------------------------------------------------
+# Funciton to calculate largest decimal place
+# -----------------------------------------------------------------------------
+
+def compare_decimal(str1, str2):
+
+	d1 = decimal.Decimal(str1)
+	d1 = d1.as_tuple().exponent
+	d1 = abs(d1)
+
+	d2 = decimal.Decimal(str2)
+	d2 = d2.as_tuple().exponent
+	d2 = abs(d2)
+
+	if d1 > d2:
+		return d1
+	if d2 > d1:
+		return d2
+	else: 
+		return 
+
+

@@ -31,13 +31,15 @@ This project will consist of two files:
 
 ### math_functions.py
 
-This file will contain three functions findSum, findDiff, and three_commas.
+This file will contain four functions findSum, findDiff, three_commas, and compare_decimal.
 
 findSum takes two large numbers as string inputs and returns the sum as a string.
 
 findDiff takes two large numbers as string inputs and returns the difference as a string.
 
-three_commas a string input, converts it to an integer, adds commas at every third digit from the end, converts the integer back to a string, and returns it as an output.
+three_commas takes a string input, converts it to an integer, adds commas at every third digit from the end, converts the integer back to a string, and returns it as an output.
+
+compare_decimal compares both input argument's decimal place, and returns the larger number of digits after the decimal point between both inputs.
 
 ### math_test.py
 
